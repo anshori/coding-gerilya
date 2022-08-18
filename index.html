@@ -4,10 +4,33 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Peta</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+	<style>
+		html, body, #map {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 <body>
-	Ini nanti ditampilkan peta
-	Ini nanti ditmpilkan peta lagi
+	<div id="map"></div>
+	<script>
+		// Initialize the map
+		var map = L.map('map').setView([-6.917464, 107.609810], 13);
+		// Add a tile layer
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		// Add a marker in the given location, attach a popup to it and open the popup
+		L.marker([-6.917464, 107.609810]).addTo(map)
+			.bindPopup('<b>Kantor Pusat</b><br>Jl. Raya Cisarua, Cisarua, Cisarua, Kota Bandung, Jawa Barat 40286<br>')
+			.openPopup();
+	</script>
 </body>
-</html>l
+</html>
